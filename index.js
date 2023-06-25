@@ -11,6 +11,7 @@ const { loadSocials, loadLinks } = require('./controllers/loadPrevious');
 env.config();
 mongoose.set('strictQuery', false);
 
+
 app.use(express.json());
 app.use(cors({
     origin: '*',
