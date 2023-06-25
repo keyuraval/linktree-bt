@@ -27,9 +27,8 @@ const loginUser = (req, res) => {
     try {
         const user = User.findOne({ email: email, password: password });
         console.log(user);
+        res.setHeader("Access-Control-Allow-Origin", "*");
         if (!user) {
-            res.setHeader("Access-Control-Allow-Origin", "*");
-
             return res.json({ status: 'not found', error: 'Invalid credentials' })
         }
         const token = jwt.sign({ email: email }, process.env.SECRET_KEY);
